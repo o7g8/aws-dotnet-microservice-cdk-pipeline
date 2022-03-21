@@ -7,10 +7,12 @@ namespace MicroserviceNet6
 {
     sealed class Program
     {
+        const string unique = "-net6";
         public static void Main(string[] args)
         {
             var app = new App();
-            new MicroserviceNet6Stack(app, "MicroserviceNet6Stack", new StackProps
+            new MicroserviceStack(app, $"MicroserviceStack{unique}", unique, new StackProps
+
             {
                 // If you don't specify 'env', this stack will be environment-agnostic.
                 // Account/Region-dependent features and context lookups will not work,
