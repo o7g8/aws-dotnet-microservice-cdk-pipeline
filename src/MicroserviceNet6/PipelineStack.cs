@@ -38,6 +38,7 @@ namespace MicroserviceNet6
                         //"sudo apt-get install -y dotnet-sdk-3.1", // Language-specific install cmd
                         "cd src",
                         "dotnet --list-sdks",
+                        "dotnet --list-sdks",
                         "dotnet build"  // Language-specific build cmd
                     }
                 }),
