@@ -7,10 +7,12 @@ namespace MicroserviceNet6
 {
     sealed class Program
     {
-        const string unique = "-net6";
+        //const string unique = "-net6";
         public static void Main(string[] args)
         {
             var app = new App();
+            new MicroservicePipelineStack(app, "MicroservicePipelineStack");
+            /*
             new MicroserviceStack(app, $"MicroserviceStack{unique}", unique, new StackProps
 
             {
@@ -39,7 +41,8 @@ namespace MicroserviceNet6
                 */
 
                 // For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html
-            });
+            //});
+            
             app.Synth();
         }
     }
