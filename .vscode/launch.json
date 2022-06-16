@@ -2,18 +2,56 @@
     "version": "0.2.0",
     "configurations": [
         {
-            // Use IntelliSense to find out which attributes exist for C# debugging
-            // Use hover for the description of the existing attributes
-            // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
+            "type": "aws-sam",
+            "request": "direct-invoke",
+            "invokeTarget": {
+                "target": "code",
+                "lambdaHandler": "SavePolicy::SavePolicy.Function::FunctionHandler",
+                "projectRoot": "${workspaceFolder}/src/lambdas/SavePolicy/src/SavePolicy"
+            },
+            "lambda": {
+                "runtime": "dotnet6",
+                "payload": {
+                    "json": {
+                        "Records": [
+                            {
+                              "messageId": "19dd0b57-b21e-4ac1-bd88-01bbb068cb78",
+                              "receiptHandle": "MessageReceiptHandle",
+                              "body": "Hello from SQS!",
+                              "attributes": {
+                                "ApproximateReceiveCount": "1",
+                                "SentTimestamp": "1523232000000",
+                                "SenderId": "123456789012",
+                                "ApproximateFirstReceiveTimestamp": "1523232000001"
+                              },
+                              "messageAttributes": {},
+                              "md5OfBody": "7b270e59b47ff90a553787216d55d91d",
+                              "eventSource": "aws:sqs",
+                              "eventSourceARN": "arn:{partition}:sqs:{region}:123456789012:MyQueue",
+                              "awsRegion": "{region}"
+                            }
+                          ]
+                    }
+                    
+                }
+            },
+            "sam": {
+                "containerBuild": false,
+                "skipNewImageCheck": false
+            },
+            "api": {
+                "httpMethod": "get"
+            },
+            "name": "lambda1"
+        },
+        {
             "name": ".NET Core Launch (console)",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/src/MicroserviceNet6/bin/Debug/netcoreapp3.1/MicroserviceNet6.dll",
             "args": [],
             "cwd": "${workspaceFolder}/src/MicroserviceNet6",
-            // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false
         },
