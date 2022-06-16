@@ -6,7 +6,7 @@ namespace MicroserviceNet6
 {
     public class MicroservicePipelineStage : Stage
     {
-        const string unique = "-net6";
+        const string unique = "-pipeline1";
         public MicroservicePipelineStage(Construct scope, string id, StageProps props = null)
             : base(scope, id, props)
         {
