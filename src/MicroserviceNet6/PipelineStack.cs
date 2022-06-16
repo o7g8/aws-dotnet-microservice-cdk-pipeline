@@ -17,7 +17,7 @@ namespace MicroserviceNet6
                 RepositoryName = "MicroserviceRepo"
             });
 
-                       // The basic pipeline declaration. This sets the initial structure
+            // The basic pipeline declaration. This sets the initial structure
             // of our pipeline
             var pipeline = new CodePipeline(this, "Pipeline", new CodePipelineProps
             {
@@ -36,6 +36,9 @@ namespace MicroserviceNet6
                     }
                 }),
             });
+
+            var deploy = new MicroservicePipelineStage(this, "Deploy");
+            var deployStage = pipeline.AddStage(deploy);
         }
     }
 }
