@@ -14,6 +14,7 @@ namespace SavePolicy
 {
   public class Function
   {
+    // this is a name of environment variable storing DynamoDB table name
     private const string TABLE = "TABLE";
     internal static AmazonDynamoDBClient client = new AmazonDynamoDBClient();
     internal static Table table = Table.LoadTable(client, Environment.GetEnvironmentVariable(TABLE));
