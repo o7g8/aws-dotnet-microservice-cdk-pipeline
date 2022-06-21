@@ -18,6 +18,7 @@ namespace ReadPolicy
 {
   public class Function
   {
+    // name of DynamoDB table
     const string TABLE = "TABLE";
     private static AmazonDynamoDBClient dynamoClient = new AmazonDynamoDBClient();
     private static AmazonLambdaClient lambdaClient;
